@@ -27,6 +27,13 @@
 #define USART1_CR1          (*(volatile uint32_t*)(USART1_BASE_ADDR + 0x0C))
 #define USART1_CR3          (*(volatile uint32_t*)(USART1_BASE_ADDR + 0x14))
 
+typedef enum {
+    LED_GREEN = 12, 
+    LED_ORANGE,
+    LED_BLUE,
+    LED_RED
+}led_t;
+
 void LedCtrl(led_t led, int on_off);
 char ButtonState();
 void led_on_off();

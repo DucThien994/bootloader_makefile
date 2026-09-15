@@ -1,5 +1,7 @@
 #include "usart.h"
 
+uint8_t rx_buf[rx_buffer_size];
+
 void Usart_Config(void){
     GPIOB_MODER &= ~(0xF << 12);
     GPIOB_MODER |= 0b10 << 12;

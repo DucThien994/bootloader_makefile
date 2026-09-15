@@ -1,12 +1,5 @@
 #include "gpio.h"
 
-typedef enum {
-    LED_GREEN = 12, 
-    LED_ORANGE,
-    LED_BLUE,
-    LED_RED
-}led_t;
-
 void LedCtrl(led_t led, int on_off){
     if(on_off == 1){
         GPIOD_BSRR |= 1 << led; 

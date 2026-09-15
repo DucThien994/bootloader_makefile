@@ -4,7 +4,7 @@
 #include "gpio.h"
 
 #define rx_buffer_size      (48 * 1024) // kich thuoc buffer 48kB 
-#define rx_buf[rx_buffer_size];
+extern uint8_t rx_buf[rx_buffer_size];
 
 void Usart_Init(void);
 void USART1_IRQHandler(void);
