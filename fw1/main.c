@@ -1,8 +1,5 @@
 #include <stdio.h>
 #include "gpio.h"
-#include "usart.h"
-#include "flash.h"
-
 
 void SystemInit(void){
 
@@ -14,5 +11,5 @@ int main(){
 
 
     }
-    return 0;
+    return 0; 
 }

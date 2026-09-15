@@ -27,3 +27,4 @@ clean:
 	rm -f $(OBJS) $(DEPS) $(TARGET) output.map
 
 .PHONY: all clean
+x
