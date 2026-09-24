@@ -43,9 +43,10 @@
 #define ADC_CR1     (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x04))   
 #define ADC_JSQR    (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x38))   
 #define ADC_CCR     (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x04 + 0x300))   
-#define ADC_SMPR1   (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x0C))   
+#define ADC_SMPR1   (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x0C))
 #define ADC_CR2     (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x08))
-#define ADC_JDR1    (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x54))
-
+#define ADC_JDR1    (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x3C))
+#define ADC_SQR3    (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x34))
+#define ADC_DR      (*(volatile uint32_t*)(ADC_BASE_ADDR + 0x4C))
 
 #endif

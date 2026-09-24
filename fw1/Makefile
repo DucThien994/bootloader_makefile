@@ -1,5 +1,5 @@
 CC        = arm-none-eabi-gcc
-CPU       = -mcpu=cortex-m4
+CPU       = -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard
 LDSCRIPT  = STM32F411VETX_FLASH.ld
 
 CFLAGS    = $(CPU) -std=gnu11 -specs=nano.specs -MMD -MP 
@@ -10,7 +10,7 @@ OBJS      = $(SRCS:.c=.o) startup.o
 DEPS      = $(SRCS:.c=.d) 
 TARGET    = firmware.elf 
 
-all: $(TARGET)
+all: $(TARGET) firmware.bin
 
 $(TARGET): $(OBJS)
 	$(CC) $(LDFLAGS) $(OBJS) -o $@
@@ -21,9 +21,12 @@ $(TARGET): $(OBJS)
 startup.o: startup_stm32f411vetx.s
 	$(CC) $(CPU) -std=gnu11 -x assembler-with-cpp -c $< -o $@
 
+firmware.bin: $(TARGET)
+	arm-none-eabi-objcopy -O binary $< $@
+
 -include $(DEPS)
 
 clean: 
-	rm -f $(OBJS) $(DEPS) $(TARGET) output.map
+	rm -f $(OBJS) $(DEPS) $(TARGET) firmware.bin output.map
 
 .PHONY: all clean
